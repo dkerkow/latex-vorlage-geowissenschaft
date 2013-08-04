@@ -1,0 +1,153 @@
+% Aus der Datei preambel.tex werden alle globalen Einstellungen für das Dokument geladen:
+\input{preambel.tex}
+
+
+%%% Hier wird die Titelseite angepasst:
+
+% Seitenrahmen und Nummerierungen ausschalten
+\pagestyle{empty}
+
+% fuer den Anfang roemische Seitennummern
+\pagenumbering{Roman}    % roman | arabic
+
+
+\titlehead{Freie Universität Berlin\\
+           Fachbereich Geowissenschaften\\
+           Institut für Geographische Wissenschaften}
+
+\subject{Hausarbeit}
+
+\title{Titel der Hausarbeit}
+
+%\subtitle{Untertitel, wenn benötigt} 
+
+% Name des oder der Autoren eintragen
+\author{Autor 1, Autor 2, Autor 3}
+
+% Datum wird automatisch eingetragen beim kompilieren, für manuell einfach ersetzen!
+\date{\today} 
+
+% Anpassen nach Bedarf, für einzeilig einfach die \\ wegnehmen
+\publishers{Dozenten:\\Prof. Dr. Dozent 1\\Prof. Dr. Dozent 2}
+
+
+%%% Beginn des eigentlichen Dokuments
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\maketitle % Titelseite hier jetzt erstellen
+\clearpage
+
+
+\pagestyle{scrheadings}    % wieder auf normale Seitenrahmen zurück schalten
+\clearscrheadfoot
+
+\automark[subsection]{section}
+\cfoot{\pagemark}
+\chead{\headmark}
+
+% Inhaltsverzeichnis in den PDF-Links eintragen
+\pdfbookmark[1]{Inhaltsverzeichnis}{toc}
+
+%%% Inhaltsverzeichnis 
+\tableofcontents
+
+\newpage
+
+%%% Abbildungsverzeichnis 
+\listoffigures
+
+%%% Tabellenverzeichnis 
+\listoftables
+
+%%% Listings-Verzeichnis 
+\lstlistoflistings
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage % Beginn des Textkörpers
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%% Für den Hauptteil normale Seitenzahlen
+\pagenumbering{arabic}  % Nummerierungstyp roman | arabic
+
+\section{Einleitung}
+\input{content/1_Einleitung.tex}
+
+\clearpage
+
+\section{Untersuchungsgebiet}
+\input{content/2_Untersuchungsgebiet.tex}
+
+\clearpage
+
+\section{Methoden}
+\input{content/3_Methoden.tex}
+
+\clearpage
+
+\section{Ergebnisse}
+\input{content/4_Ergebnisse.tex}
+
+\clearpage
+
+\section{Diskussion}
+\input{content/5_Diskussion.tex}
+
+\clearpage
+
+\section{Zusammenfassung}
+\input{content/6_Fazit.tex}
+
+\clearpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Ende des Textkörpers
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%% Literatur-Verzeichnis 
+
+% damit wird die Datei literature.bib aus dem gleichen Verzeichnis benutzt. Zum Bearbeiten der Datei empfehle ich pybliographer oder Zotero!
+\bibliography{literature} 
+
+% hier einen passenden Stil für die Darstellung der Zitate im Text und im Lit.-Verz. angeben!
+\bibliographystyle{munich} 
+
+\newpage
+
+%%% Anhang %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\pagestyle{plain} 
+
+\section*{Anhang} % Kapitel ohne Nummerierung
+\addcontentsline{toc}{section}{Anhang}
+
+\begin{appendix}
+
+% Hier können jetzt nach belieben Bilder, Tabellen, Karten und sogar ganze PDF-Dokumente eingebunden werden! Z.B.:
+
+
+%\begin{figure}[htb]
+%\centering
+%\includegraphics[width=\textwidth]{images/map.png}
+%\caption{Bildunterschrift}
+%\label{fig:map.png}
+%\end{figure}
+
+
+% EInbindung PDF Seiten according to : http://gb01.blogspot.de/2008/03/include-pdf-in-latex.html
+% Globals: include all pages, don't auto scale
+%\includepdfset{pages=-}
+
+% Include the PDF files, scaling as required
+%% \includepdf[scale=1.25]{title.pdf}
+%\includepdf[landscape, fitpaper]{images/map.pdf}
+
+
+
+\end{appendix}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{document}

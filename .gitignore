@@ -1,0 +1,20 @@
+## Files to ignore in versioning:
+
+# General
+.DS_Store
+*~
+*.swp
+*.bak
+
+# TeX files:
+*.toc
+*.lol
+*.log
+*.lof
+*.aux
+*.bbl
+*.blg
+*.out
+*.lot
+*.ini
+
